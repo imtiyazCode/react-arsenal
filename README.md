@@ -1,33 +1,59 @@
 # React Arsenal ⚔️
 
-A growing collection of advanced React UI patterns built from scratch.
+A collection of React UI components built from scratch to understand how they work, not just how to install them.
 
-This repository focuses on deeply understanding how commonly used components are engineered — not just installed.
+## Tech Stack
+
+- **React 19** + **TypeScript**
+- **Vite** for bundling
+- **Framer Motion** for animations
+- **focus-trap-react** for accessibility
 
 ---
 
-## 📦 Current Component
+## Components
 
 ### Modal
+- React Portals (renders to `#modal-root` in `index.html`)
+- Focus trap (keyboard focus stays inside the modal)
+- ESC to close, click-outside to close
+- Framer Motion scale + fade animations
+- Scroll-lock on open, scrollable content inside
 
-An accessible, reusable modal component built with:
+```tsx
+<Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+  <p>Your content here</p>
+</Modal>
+```
 
-- React Portals
-- Focus trap
-- Keyboard accessibility (ESC to close)
-- Scroll locking
-- Clean state management
+### Skeleton
+- Shimmer animation (pure CSS, no extra deps)
+- Variants: `text`, `circular`, `rectangular`, `card`
+- Props: `width`, `height`, `borderRadius`, `className`
+- Dark & light mode ready
+
+```tsx
+<Skeleton variant="circular" width={48} height={48} />
+<Skeleton variant="text" width="60%" />
+<Skeleton variant="rectangular" height={160} />
+```
 
 ---
 
-## 🎯 Purpose
+## Getting Started
 
-Most developers install UI libraries.
+```bash
+yarn install
+yarn dev      # dev server
+yarn build    # type-check + build
+```
 
-This repository exists to rebuild core UI patterns from first principles — to strengthen architectural thinking and React fundamentals.
+---
 
-More components coming soon:
-- Infinite Scroll
-- Skeleton Loader
-- Toast System
-- Command Palette
+## Roadmap
+
+- [x] Modal
+- [x] Skeleton Loader
+- [ ] Toast System
+- [ ] Infinite Scroll
+- [ ] Command Palette
