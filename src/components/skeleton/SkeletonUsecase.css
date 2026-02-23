@@ -1,0 +1,223 @@
+/* ── Root ─────────────────────────────────────────────── */
+.su-root {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.su-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+  background: linear-gradient(135deg, #a78bfa, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.su-subheading {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 28px;
+}
+
+/* ── Toggle button ────────────────────────────────────── */
+.su-toggle-btn {
+  padding: 10px 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+  color: #fff;
+  transition:
+    opacity 0.2s,
+    transform 0.15s;
+  margin-bottom: 36px;
+}
+.su-toggle-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+/* ── Grid layout ──────────────────────────────────────── */
+.su-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* ── Section card ─────────────────────────────────────── */
+.su-section {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 20px;
+}
+.su-section--full {
+  grid-column: 1 / -1;
+}
+
+.su-section-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0 0 16px;
+}
+
+/* ── Profile card ─────────────────────────────────────── */
+.su-profile-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.su-profile-card--loaded {
+  animation: su-fade-in 0.35s ease;
+}
+
+.su-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.su-profile-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.su-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.su-role {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 6px;
+}
+
+.su-bio {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+/* ── Article list ─────────────────────────────────────── */
+.su-article-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.su-article-item {
+  padding: 0;
+}
+
+.su-article-item--loaded {
+  animation: su-fade-in 0.35s ease;
+}
+
+.su-article-img {
+  height: 100px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4f46e5, #0ea5e9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: #fff;
+}
+
+.su-article-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 10px 0 4px;
+}
+
+.su-article-meta {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+}
+
+/* ── Variants showcase ────────────────────────────────── */
+.su-variants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+.su-variant-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  min-width: 80px;
+}
+
+.su-variant-item--wide {
+  flex: 1;
+  min-width: 200px;
+}
+
+.su-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.35);
+  text-transform: uppercase;
+}
+
+/* ── Fade-in for real content ─────────────────────────── */
+@keyframes su-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Light mode ───────────────────────────────────────── */
+@media (prefers-color-scheme: light) {
+  .su-root {
+    color: #213547;
+  }
+  .su-section {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+  .su-subheading {
+    color: #64748b;
+  }
+  .su-section-title {
+    color: #94a3b8;
+  }
+  .su-role,
+  .su-article-meta {
+    color: #64748b;
+  }
+  .su-label {
+    color: #94a3b8;
+  }
+  .su-bio {
+    color: #475569;
+  }
+}
