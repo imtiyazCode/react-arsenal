@@ -1,0 +1,161 @@
+/* ── CSS custom properties ────────────────────────────── */
+.dmt-root {
+  /* Light */
+  --dmt-track-bg-light: #e2e8f0;
+  --dmt-thumb-bg-light: #ffffff;
+  --dmt-icon-light: #f59e0b;
+
+  /* Dark */
+  --dmt-track-bg-dark: #3730a3;
+  --dmt-thumb-bg-dark: #ffffff;
+  --dmt-icon-dark: #818cf8;
+
+  /* Sizing – md defaults */
+  --dmt-track-w: 56px;
+  --dmt-track-h: 28px;
+  --dmt-thumb-size: 22px;
+  --dmt-thumb-offset: 3px;
+  --dmt-icon-size: 13px;
+
+  /* Reset button styles */
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 999px;
+  outline: none;
+  transition: background-color 0.35s ease;
+}
+
+/* Focus ring */
+.dmt-root:focus-visible .dmt-track {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.45);
+}
+
+/* ── Size variants ────────────────────────────────────── */
+.dmt-root--sm {
+  --dmt-track-w: 44px;
+  --dmt-track-h: 22px;
+  --dmt-thumb-size: 16px;
+  --dmt-thumb-offset: 3px;
+  --dmt-icon-size: 10px;
+  --dmt-padding-x: 6px;
+}
+
+.dmt-root--lg {
+  --dmt-track-w: 72px;
+  --dmt-track-h: 36px;
+  --dmt-thumb-size: 28px;
+  --dmt-thumb-offset: 4px;
+  --dmt-icon-size: 16px;
+  --dmt-padding-x: 10px;
+}
+
+.dmt-root--md {
+  --dmt-padding-x: 8px;
+}
+
+/* ── Track ────────────────────────────────────────────── */
+.dmt-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: var(--dmt-track-w);
+  height: var(--dmt-track-h);
+  border-radius: 999px;
+  background-color: var(--dmt-track-bg-light);
+  transition: background-color 0.35s ease;
+  overflow: hidden;
+}
+
+.dmt-root--dark .dmt-track {
+  background-color: var(--dmt-track-bg-dark);
+}
+
+/* ── Icons container ──────────────────────────────────── */
+.dmt-icons {
+  position: absolute;
+  z-index: 100;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--dmt-padding-x);
+  pointer-events: none;
+}
+
+.dmt-icon {
+  width: var(--dmt-icon-size);
+  height: var(--dmt-icon-size);
+  flex-shrink: 0;
+  transition:
+    opacity 0.3s ease,
+    transform 0.35s ease;
+}
+
+/* Sun icon — visible in light mode */
+.dmt-icon--sun {
+  color: var(--dmt-icon-light);
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.dmt-root--dark .dmt-icon--sun {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.6);
+}
+
+/* Moon icon — visible in dark mode */
+.dmt-icon--moon {
+  color: var(--dmt-icon-dark);
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.6);
+}
+
+.dmt-root--dark .dmt-icon--moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* ── Thumb ────────────────────────────────────────────── */
+.dmt-thumb {
+  position: absolute;
+  top: var(--dmt-thumb-offset);
+  left: var(--dmt-thumb-offset);
+  width: var(--dmt-thumb-size);
+  height: var(--dmt-thumb-size);
+  border-radius: 50%;
+  background-color: var(--dmt-thumb-bg-light);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 0.35s ease;
+  will-change: transform;
+}
+
+.dmt-root--dark .dmt-thumb {
+  background-color: var(--dmt-thumb-bg-dark);
+  transform: translateX(
+    calc(
+      var(--dmt-track-w) - var(--dmt-thumb-size) - var(--dmt-thumb-offset) * 2
+    )
+  );
+}
+
+/* ── Hover effect ─────────────────────────────────────── */
+.dmt-root:hover .dmt-thumb {
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dmt-root:active .dmt-thumb {
+  transform: scale(0.9);
+}
+
+.dmt-root--dark:active .dmt-thumb {
+  transform: translateX(
+      calc(
+        var(--dmt-track-w) - var(--dmt-thumb-size) - var(--dmt-thumb-offset) * 2
+      )
+    )
+    scale(0.9);
+}
