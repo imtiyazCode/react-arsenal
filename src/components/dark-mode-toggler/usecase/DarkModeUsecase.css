@@ -1,0 +1,207 @@
+/* ── Root page ────────────────────────────────────────── */
+.dmu-root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-2: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --border: #e2e8f0;
+  --accent: #6366f1;
+  --accent-soft: #eef2ff;
+  --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  --badge-text: #4338ca;
+  --badge-bg: #e0e7ff;
+
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: "Inter", system-ui, sans-serif;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── Dark theme overrides ─────────────────────────────── */
+.dmu-root.dmu-root--dark {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --surface-2: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --border: #334155;
+  --accent: #818cf8;
+  --accent-soft: rgba(129, 140, 248, 0.15);
+  --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --badge-text: #a5b4fc;
+  --badge-bg: rgba(99, 102, 241, 0.18);
+}
+
+/* ── Topbar ───────────────────────────────────────────── */
+.dmu-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--surface);
+  transition:
+    background-color 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.dmu-brand {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.03em;
+}
+
+.dmu-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dmu-theme-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  transition: color 0.3s;
+}
+
+/* ── Hero ─────────────────────────────────────────────── */
+.dmu-hero {
+  text-align: center;
+  padding: 64px 24px 48px;
+}
+
+.dmu-hero-title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin: 0 0 12px;
+  line-height: 1.15;
+}
+
+.dmu-hero-title span {
+  color: var(--accent);
+}
+
+.dmu-hero-sub {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+  transition: color 0.3s;
+}
+
+/* ── Features grid ────────────────────────────────────── */
+.dmu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px 48px;
+}
+
+.dmu-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: var(--card-shadow);
+  transition:
+    background-color 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.dmu-card-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.dmu-card-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin: 0 0 6px;
+  color: var(--text-primary);
+  transition: color 0.3s;
+}
+
+.dmu-card-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+  transition: color 0.3s;
+}
+
+/* ── Variants showcase ────────────────────────────────── */
+.dmu-showcase {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+}
+
+.dmu-showcase-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 20px;
+}
+
+.dmu-variants-table {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition:
+    background-color 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.dmu-variant-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border);
+  transition: border-color 0.4s ease;
+}
+
+.dmu-variant-row:last-child {
+  border-bottom: none;
+}
+
+.dmu-variant-label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dmu-variant-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.dmu-variant-hint {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  transition: color 0.3s;
+}
+
+.dmu-badge {
+  font-size: 0.73rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
